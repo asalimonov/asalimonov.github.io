@@ -5,8 +5,8 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.4">
-<meta name="author" content="2019-01-11">
-<title>Системы с высокой доступностью и аварийное восстановление. Введение.</title>
+<meta name="author" content="2019-01-14">
+<title>Высокая доступность: концепции и применимость</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -420,383 +420,170 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Системы с высокой доступностью и аварийное восстановление. Введение.</h1>
+<h1>Высокая доступность: концепции и применимость</h1>
 <div class="details">
-<span id="author" class="author">2019-01-11</span><br>
+<span id="author" class="author">2019-01-14</span><br>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#__a_id_bc_a_Связь_с_другими_областями_business_continuity"><a id="bc"></a>Связь с другими областями (business continuity)</a></li>
-<li><a href="#__a_id_why_a_Почему_это_нужно_для_бизнеса"><a id="why"></a>Почему это нужно для бизнеса</a></li>
-<li><a href="#__a_id_availability_math_a_Математика_доступности"><a id="availability-math"></a>Математика доступности</a></li>
+<li><a href="#_Концепции">Концепции</a>
+<ul class="sectlevel2">
+<li><a href="#_Надежность">Надежность===</a></li>
+</ul>
+</li>
+<li><a href="#_Математика_достуности_deep_dive_into_failues">Математика достуности (deep dive into failues)</a>
+<ul class="sectlevel2">
+<li><a href="#_Метрики_доступности">Метрики доступности</a></li>
+<li><a href="#_sla_slo_sli">SLA, SLO, SLI</a></li>
+<li><a href="#_sli_slo_sli">SLI &#8594; SLO &#8594; SLI</a></li>
+<li><a href="#_sla_slo_sli_2">SLA, SLO, SLI</a></li>
+</ul>
+</li>
+<li><a href="#_Ссылки">Ссылки</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div id="preamble">
+<div class="sect1">
+<h2 id="_Концепции">Концепции</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Alexander Salimonov &lt;<a href="mailto:asalimonov@hotmail.com">asalimonov@hotmail.com</a>&gt;, <a href="https://twitter.com/asalimonov">@asalimonov</a></p>
+<p>В прошлых статьях рассмотрели причины сбоев, типичный таймлайн сбоев, какие фазы там есть и какие действия обычно требуются, что бы вернуть систему в стабильное рабочее состояние. Настало время погружаться в теорию HA глубже, но попытаться не распыляться на конкретные реализации и случаи, чтобы сохранить универсальность и относительную абстракцию.</p>
 </div>
 <div class="paragraph">
-<p>Серия статей, цель которых осветить вопросы проектирования и эксплуатации информационных систем и сервисов с требуемым для организации уровнем надежности. Введение в проблематику, освещаются ключевые концепции, связанность с другими вопросами ведения деятельности организации. Статьи предназначены преимущественно для руководителей проектов, собственников продуктов, а также для технических специалистов занятых в проектировании и организации работ.</p>
-</div>
-<div class="paragraph">
-<p>Данная статья является первой в серии, примерный состав серии:</p>
+<p>И так, проектируя HA систему, прежде всего преследуют цель построить систему, которая бы за минимальные деньги держала определенную нагрузку и лишний раз не беспокоила (что в принципе тоже деньги). Соотвественно система должна быть:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Системы с высокой доступностью и аварийное восстановление. Введение. (эта статья)</p>
+<p><strong>Надежной:</strong> минимальный потенциал для сбоев.</p>
 </li>
 <li>
-<p>Системы с высокой доступностью и аварийное восстановление. Сбои: причины и классификация.</p>
-</li>
-<li>
-<p>Высокая доступность: концепции и применимость</p>
-</li>
-<li>
-<p>Аварийное восстановление: основы</p>
-</li>
-<li>
-<p>Аварийное восстановление: восстановление после сбоя</p>
-</li>
-<li>
-<p>Архитектура высокодоступных систем: основы</p>
-</li>
-<li>
-<p>Архитектура высокодоступных систем: базовые требования и сценарии отказа обслуживания</p>
-</li>
-<li>
-<p>Архитектура высокодоступных систем: расчет надежности</p>
+<p><strong>Избыточной:</strong> использовать имеющиеся ресурсы, чтобы продолжать работать даже после сбоя без внешнего вмешательства.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>С вопросами проектирования и эксплуатации информационных систем сейчас сталкиваются практически в любой отрасли и сфере деятельности человечества где есть потребность в автоматизации и информационной поддержки. Довольно часто, эта автоматизация или информационная поддержка могут сами быть критически важными элементами процессов, обеспечивающих функционирование организации, например быть неотъемлемой частью основного бизнес-процесса или же сами являться продаваемой услугой. Так как от них начинает зависеть сама реализация деятельности или непосредственное получение дохода, то практически сразу же возникает и вопрос их надежности и согласованности с ограничениями и условиями ведения этой самой деятельности.</p>
+<p>И уже тут начинаются противоречия. Чем меньше компонентов в системе и их связанность - тем она надежней, но при увеличении избыточности увеличивается и связанность, а количество сбоев в системе растет. Почему так - рассмотрим в последющей главе.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="__a_id_bc_a_Связь_с_другими_областями_business_continuity"><a id="bc"></a>Связь с другими областями (business continuity)</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_Надежность">Надежность===</h3>
 <div class="paragraph">
-<p>Данная тема практически всегда рассматривается как часть другой большой темы - обеспечение непрерывности ведения бизнеса/деятельности <a href="https://en.wikipedia.org/wiki/Business_continuity">(business continuity)</a>, которая отвечает за меры по обеспечению доступа к ресурсам для критически важных для организации активностей. К сожалению далеко не все организации руководствуются какими бы то ни было стандартами (региональными, отраслевыми, даже собственными), регламентами или соглашениями. Но при достижении определенного масштаба или увеличения важности информационной системы становится понятно, что дешевле предотвратить инцидент или как-то его обработать, чем столкнуться с его последствиями без заранее предпринятых для его ликвидации мер. Довольно очевидно, что в таких случаях исходят из потребностей организации, а уже на основе них формируются и требования к обеспечению непрерывности функционирования организации через защитные меры.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="__a_id_why_a_Почему_это_нужно_для_бизнеса"><a id="why"></a>Почему это нужно для бизнеса</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Как правило в обеспечении надежности эксплуатируемой организацией системы стоит начинать с потребностей самой организации.  Для этого нужно структурировать ее цели и потери которые могут вызвать отказы системы, их масштабы и показатели. Обычно цели организации определяются через уже установленные стандарты business continuity и через управление рисками, но эта тема вне серии статей. Клаус Шмидт в книге “High availability and disaster recovery. Concepts, design, implementation” предлагает следующую классификацию для описания ущерба организации в случае отказа:</p>
+<p>Оценивая надежность системы прежде всего смотрят на следующие её характеристики:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><strong>Прямые затраты</strong> - затраты на ремонт, закупку нового оборудования, восстановление работоспособности</p>
+<p>Надежность отдельных компонентов</p>
 </li>
 <li>
-<p><strong>Дополнительное рабочее времени</strong> - непрямые затраты связанные с обработкой любого инцидента специалистами</p>
+<p>Скорость получения достоверной информации о её состоянии</p>
 </li>
 <li>
-<p><strong>Потерянное эффективное рабочее время</strong> - также непрямые затраты, связанные с невозможностью выполнения бизнес-задач персоналом, работу которых затронул отказ.</p>
+<p>Предсказуемости поведения в различных ситуациях</p>
 </li>
 <li>
-<p><strong>Потерянная выручка</strong> - невозможность обработать транзакции (любого вида) от экономического агента.</p>
+<p>Легкости в управлении при сохранении её живучести</p>
 </li>
 </ol>
 </div>
-<table class="tableblock frame-topbot grid-all" style="width: 60%;">
-<caption class="title">Table 1. Потери вызванные сбоем</caption>
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<tbody>
+<div class="paragraph">
+<p>Надежность () можно выразисть как вероятностный показатель:<br>
+\$E = I \cdot D \cdot L\$<br></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_Математика_достуности_deep_dive_into_failues">Математика достуности (deep dive into failues)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_Метрики_доступности">Метрики доступности</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_sla_slo_sli">SLA, SLO, SLI</h3>
+<div class="paragraph">
+<p>(Fig. 2.2. Service level agreements (SLAs) and user notion of availability)
+Есть несколько подходов по работе с документами связанными с доступностью системы. Различие в них не концептуальные, по связанные с бизнес-моделью организации и внутренними процессами.</p>
+</div>
+<div class="hdlist">
+<table>
 <tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Известные</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Оценочные</strong></p></td>
+<td class="hdlist1">
+Service Level Agreement (SLA)
+</td>
+<td class="hdlist2">
+<p>договоренность об уровне сервиса (см. <a href="#availability-math">Математика доступности</a>)</p>
+</td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Выручка</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Потеря выручки</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Потерянное эффективное рабочее время</p></td>
+<td class="hdlist1">
+Service Level Objectives (SLO)
+</td>
+<td class="hdlist2">
+<p>цели по предоставлению уровня сервиса (внутренние требования (документы)), является более строгим набором требований чем SLA, так как нарушение последнего может привести к явным финансовым и репутационным потерям.</p>
+</td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Затраты</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Прямые затраты</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Дополнительное рабочее время</p></td>
+<td class="hdlist1">
+Service Level Indicators (SLI)
+</td>
+<td class="hdlist2">
+<p>метрики доступности системы</p>
+</td>
 </tr>
-</tbody>
 </table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sli_slo_sli">SLI &#8594; SLO &#8594; SLI</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_sla_slo_sli_2">SLA, SLO, SLI</h3>
 <div class="paragraph">
-<p>Наиболее очевидная цена сбоя и простоя системы и вероятно наиболее затратная - уменьшение пользовательской продуктивности. Фактическая цена простоя зависит от того на какую пользовательскую деятельность сбой повлиял и какое количество пользователей он затронул.
-Простой пример:</p>
+<p>Этот SRE -DevOps
+== Основные подходы увеличения доступности
+(Basic Approach: Robustness and Redundancy)</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Во внутренней инфраструктуре фирме, предоставляющей некоторый онлайн-сервис произошел сбой, в результате которого сотрудники потеряли возможность работать с тестовыми контурами (test environment) в течении двух дней.</p>
-</li>
-<li>
-<p>Пользователи разработчики и тестировщики со средней ставкой в $60 за час, сбой в инфраструктуре привел к невозможности работы для 30 человек.</p>
-</li>
-<li>
-<p>Восстановление работоспособности силами двух администраторов привел к тратам на 16 сверхурочных рабочих часов по той же ставке.</p>
-</li>
-<li>
-<p>Разработчики работали над исправлением ряда дефектов и тремя новыми функциями для сервиса, выпуск новой версии сдвинулся на три дня. Согласно расчетам вывод новых функций должен приносить дополнительно по $21000 выручки в день. Более того, один из дефектов сильно затрудняет работу сотрудников клиента, чем он недоволен и руководителю организации или менеджеру продукта приходится тратить дополнительные усилия на то, чтобы дополнительно проинформировать клиента, возможно предпринять какие-то еще действия, чтобы тот в целом был удовлетворен оказываемым сервисом и продолжал поддерживать или даже увеличивать выручку организации.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>И так имеем следующий список затрат. Простой в работе для разработчиков и тестировщиков:</p>
-</div>
-<div class="paragraph">
-<p><code>$50 * 8 часов * 2 дня * 30 человек = $24000</code></p>
-</div>
-<div class="paragraph">
-<p>Сверхурочные для администраторов:<br></p>
-</div>
-<div class="paragraph">
-<p><code>$50 * 16 часа * 2(коэффициент за сверхурочные) = $1600</code></p>
-</div>
-<div class="paragraph">
-<p>Недополученная выручка:<br></p>
-</div>
-<div class="paragraph">
-<p><code>$21000 * 3 дня = $63000</code></p>
-</div>
-<div class="paragraph">
-<p>Пример крайне поверхностный и окончательный подсчет ущерба от сбоя зависит от правил учета затрат в организации и текущих планов по выручке. Если план включал не только те три разрабатываемые фичи, тогда имеет смысл использовать <a href="https://www.leadingagile.com/2015/06/an-introduction-to-cost-of-delay/">cost of delay</a> показатель и для более отдаленных релизов. Но не стоит все затраты, понесенные во время сбоя, списывать на его ликвидацию.</p>
-</div>
-<div class="paragraph">
-<p>Кроме выше изложенных потерь к последствиям сбоя можно отнести:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Уменьшение удовлетворения клиентов;</p>
-</li>
-<li>
-<p>Уменьшение морали сотрудников;</p>
-</li>
-<li>
-<p>Репутационные потери;</p>
-</li>
-<li>
-<p>Падение стоимости акций компании (если такие имеются);</p>
-</li>
-<li>
-<p>Юридическая ответственность в случае несоответствия заявленным стандартам или договорам.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>На основе известных понесенных или потенциальных потерь выручки и затрат на восстановление работоспособности уже можно планировать меры по минимизации ущерба. При наличии информации о стоимости фактического простоя, подобные меры обосновываются для владельцев крайне просто (с фактами не спорят), а интересы сторон уже известны.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="__a_id_availability_math_a_Математика_доступности"><a id="availability-math"></a>Математика доступности</h2>
+<h2 id="_Ссылки">Ссылки</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>И так, в принципе очевидно - простой стоит денег, причем немалых. И чем большее число пользователей было затронуто отказом и чем значительнее затронутые бизнес-процессы, тем дороже этот самый простой обходится. Нет смысла абсолютно точно считать понесенные убытки, чтобы убедиться в их больших размера, пример:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="./01-distsys/cod.png" alt="Cost of downtime">
-</div>
-</div>
-<div class="paragraph">
-<p>Источник: <a href="https://www.ecessa.com/blog/downtime-costs/">https://www.ecessa.com/blog/downtime-costs/</a></p>
-</div>
-<div class="paragraph">
-<p>Собственно формула расчет доступности:<br>
-<code>A  = MTBF / (MTBF + MTTR)</code><br>
-<code>A</code> - собственно сам показательно доступности<br>
-<code>MTBF</code> - mean time between failures (среднее время между отказами)<br>
-<code>MTTR</code> - maximum time to resolve (максимальное время восстановления)<br></p>
-</div>
-<div class="paragraph">
-<p>Для удобства <code>A</code> умножают на 100, чтобы получить процент бесперебойной работы, именно из этого показателя формируется всем известная “доступность” по количеству девяток. На всякий случай таблица с ними для 24х7 сервисов:</p>
-</div>
-<table class="tableblock frame-topbot grid-all" style="width: 90%;">
-<caption class="title">Table 2. SLA для 24x7 сервисов</caption>
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>% бесперебойной работы</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>% недоступности</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Время простоя в год</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Время простоя в неделю</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">98%</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2%</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">7.3 дня</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3 ч. 22 мин.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">99%</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1%</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.65 дня</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1 ч. 41. мин</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">99.9%</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.1%</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8 ч. и 45 мин</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">10 мин. 5 сек</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">99.99%</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.01%</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">52.5 мин</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1 мин.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>При эксплуатации системы и расчете доступности не всегда имеется в виду, что система эксплуатируется круглосуточно и весь год. Поэтому если кто-то декларирует доступность в несколько девяток следует уточнить в каких временных интервалах и как декларируют графики обслуживания системы для клиентов. Обычно в секции Service Level Agreement (SLA) оговаривается время когда именно эта сама доступность измеряется. Чаще всего используют привычные многим обозначения с <code>HxD</code>, где <code>H</code> - количество рабочих часов в сутках, <code>D</code> - количество рабочих суток в неделе.
-Типичные варианты:</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
-<p>24 x 7 - круглосуточно, опционально прописываются часы обслуживания  (maintenance window)</p>
-</li>
-<li>
-<p>24 x 6 - 6 выбранных дней в неделю</p>
-</li>
-<li>
-<p>14 x 5 - рабочие часы в будний день</p>
+<p><a id="distsys1"></a>[distsys1]</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>Теперь сводная таблица:</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 3. SLA для различных тайм-фреймов доступности</caption>
-<colgroup>
-<col style="width: 14.2857%;">
-<col style="width: 14.2857%;">
-<col style="width: 14.2857%;">
-<col style="width: 14.2857%;">
-<col style="width: 14.2857%;">
-<col style="width: 14.2857%;">
-<col style="width: 14.2858%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-middle" rowspan="2"><p class="tableblock">SLA (%)</p></td>
-<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">24x7</p></td>
-<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">24x6</p></td>
-<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">14x5</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Месяц</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Год</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Месяц</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Год</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Месяц</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Год</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">99</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">7.3ч</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.7д</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.3ч</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.1д</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.0ч</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.5д</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">99.5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.7ч</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8д</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.1ч</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.6д</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.5ч</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">18.3ч</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">99.8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.5ч</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">17.5ч</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.3ч</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">15.0ч</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">36.6мин</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">7.3ч</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">99.9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">43.8мин</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8.8ч</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">37.6мин</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">7.5ч</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">18.3мин</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.7ч</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">99.99</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.4мин</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">52.6ч</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.8мин</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">45.1мин</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8мин</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">21.9мин</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">99.999</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">26.3сек</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5.3мин</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">22.6сек</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.5мин</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">11.0сек</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.2мин</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>При таком подходе в оценке доступности системы необходимо отметить следующее:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Относительно чего была замерена доступность, если доступ осуществляется через один из нестабильных маршрутов, то относительно его пользователей доступность будет ниже</p>
-</li>
-<li>
-<p>Выше приведенные “девятки” есть среднее значение, гораздо важнее видеть MTTR, хотя по маркетинговым соображениям его иногда и не публикуют.</p>
-</li>
-<li>
-<p>Иногда публикуют теоретические данные, основываясь на построенной модели, но важно вести замер фактической доступности и не забывать при этом про п1.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>При обсуждении SLA имеет смысл обсуждать и фиксировать в договоренностях не абстрактные девятки процента доступности сервисов, а фактические (то есть абсолютные) показатели доступности сервисов в рабочие часы, чтобы избежать недопониманий и ложных ожиданий в будущем. Также не стоит недооценивать трудности достижения показателей высокой доступности таких как 99.99%, 53 минуты простоя в год должны означать, что организация имеет возможность обработать даже самый катастрофический сбой в системе менее чем за 1 час.</p>
-</div>
-<div class="paragraph">
-<p>В следующей статье (Системы с высокой доступностью и аварийное восстановление. Вынужденные простои и сбои: причины, классификация, затраты.) будут рассмотрены основные причины сбоев, различные их классификаторы, ключевые этапы преодоления сбоя, его оценка.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-01-15 17:12:09 MSK
+Last updated 2019-01-15 17:11:46 MSK
 </div>
 </div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
 </body>
 </html>
