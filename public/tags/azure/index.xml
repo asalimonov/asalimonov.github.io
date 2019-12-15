@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Azure | Alexander Salimonov</title>
+    <link>/tags/azure/</link>
+      <atom:link href="/tags/azure/index.xml" rel="self" type="application/rss+xml" />
+    <description>Azure</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Alexander Salimonov · ©  2019</copyright><lastBuildDate>Thu, 22 Oct 2015 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/avatar_salimonov_small.jpeg</url>
+      <title>Azure</title>
+      <link>/tags/azure/</link>
+    </image>
+    
+    <item>
+      <title>Practical aspects of developing geo-service on Azure platform</title>
+      <link>/talk/2015-01-ms-sinergija/</link>
+      <pubDate>Thu, 22 Oct 2015 00:00:00 +0000</pubDate>
+      <guid>/talk/2015-01-ms-sinergija/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

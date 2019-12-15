@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2019-01-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2019-01-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/distributed-systems/</loc>
+    <lastmod>2019-01-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ha/</loc>
+    <lastmod>2019-01-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/high-availbility/</loc>
+    <lastmod>2019-01-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/high-availablitiy/</loc>
+    <lastmod>2019-01-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-01-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/sdl/</loc>
+    <lastmod>2019-01-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-01-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2019/03-distsys/</loc>
+    <lastmod>2019-01-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2019/02-distsys/</loc>
+    <lastmod>2019-01-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2019/01-distsys/</loc>
+    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/aws/</loc>
+    <lastmod>2018-08-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/docker/</loc>
+    <lastmod>2018-08-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/project/02-ob-pipelines/</loc>
+    <lastmod>2018-08-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/project/</loc>
+    <lastmod>2018-08-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/python/</loc>
+    <lastmod>2018-08-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/terraform/</loc>
+    <lastmod>2018-08-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/software-architecture/</loc>
+    <lastmod>2017-03-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/software-development/</loc>
+    <lastmod>2017-03-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/%D0%BC%D0%B8%D0%BA%D1%80%D0%BE%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D1%8B/</loc>
+    <lastmod>2017-03-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2017/01-distsys/</loc>
+    <lastmod>2017-03-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/%D1%80%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/</loc>
+    <lastmod>2017-03-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/csharp/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/dotnet/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/project/01-metrics.net.rabbitmq/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rabbitmq/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/salimonov/</loc>
+    <lastmod>2015-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/</loc>
+    <lastmod>2015-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/azure/</loc>
+    <lastmod>2015-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/domain-drive-desing/</loc>
+    <lastmod>2015-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/maxim-sokolov/</loc>
+    <lastmod>2015-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/2015-01-ms-sinergija/</loc>
+    <lastmod>2015-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/</loc>
+    <lastmod>2015-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/admin/</loc>
+  </url>
+  
+  <url>
+    <loc>/publication_types/</loc>
+  </url>
+  
+  <url>
+    <loc>/publication/</loc>
+  </url>
+  
+</urlset>

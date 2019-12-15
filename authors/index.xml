@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors | Alexander Salimonov</title>
+    <link>/authors/</link>
+      <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
+    <description>Authors</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Alexander Salimonov · ©  2019</copyright><lastBuildDate>Thu, 22 Oct 2015 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/avatar_salimonov_small.jpeg</url>
+      <title>Authors</title>
+      <link>/authors/</link>
+    </image>
+    
+    <item>
+      <title></title>
+      <link>/authors/salimonov/</link>
+      <pubDate>Thu, 22 Oct 2015 00:00:00 +0000</pubDate>
+      <guid>/authors/salimonov/</guid>
+      <description>&lt;p&gt;Hello! I&#39;m an engineering manager who has been working on commercial projects since 2010. Along the way I have been very lucky to learn from outstanding people and work with them on exciting projects:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;helps to deliver and design Yandex Data Proc and Manged Database Services at Yandex Cloud&lt;/li&gt;
+&lt;li&gt;helped to scale a platform for gathering and data analysis from social media sites at Origami Logic&lt;/li&gt;
+&lt;li&gt;designed architecture and developed of white label service which establish interoperability with EETS Toll Charges Domains at Kapsch TrafficCom&lt;/li&gt;
+&lt;li&gt;helped to redesign and scale data processing pipeline for biotech start-up &lt;a href=&#34;https://github.com/outlierbio/ob-pipelines&#34;&gt;(GitHub)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;helped to deliver outdoor and indoor lighting control system&lt;/li&gt;
+&lt;li&gt;helped to deliver access control and visitor management system&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;During my career I have been mostly focused on engineering and scaling of distributed data-intensive systems. In the past years I also got more opportunities to apply bits of my university background (economics, modeling, systems engineering, business continuity) to design, improve efficiency and reliability of large scale systems.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Maxim Sokolov</title>
+      <link>/authors/maxim-sokolov/</link>
+      <pubDate>Thu, 22 Oct 2015 00:00:00 +0000</pubDate>
+      <guid>/authors/maxim-sokolov/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/admin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/admin/</guid>
+      <description>&lt;p&gt;Hello! I&#39;m an engineering manager who has been working on commercial projects since 2010. Along the way I have been very lucky to learn from outstanding people and work with them on exciting projects:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;designed architecture of white label service which establish interoperability with EETS Toll Charges Domains&lt;/li&gt;
+&lt;li&gt;helped to scale a platform for gathering and data analysis from social media sites&lt;/li&gt;
+&lt;li&gt;helped to redesign and scale data processing pipeline for biotech start-up (GitHub)&lt;/li&gt;
+&lt;li&gt;helped to deliver outdoor and indoor lighting control system&lt;/li&gt;
+&lt;li&gt;helped to deliver access control and visitor management system&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;During my career I have been mostly focused on engineering and scaling of distributed data-intensive systems. In the past years I also got more opportunities to apply bits of my university background (economics, modeling, systems engineering, business continuity) to design, improve efficiency and reliability of large scale systems.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

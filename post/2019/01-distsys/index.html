@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.6.3">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Alexander Salimonov">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Введение, термины, проблематика.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/2019/01-distsys/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/2019/01-distsys/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@asalimonov">
+  <meta property="twitter:creator" content="@asalimonov">
+  
+  <meta property="og:site_name" content="Alexander Salimonov">
+  <meta property="og:url" content="/post/2019/01-distsys/">
+  <meta property="og:title" content="Системы с высокой доступностью | Alexander Salimonov">
+  <meta property="og:description" content="Введение, термины, проблематика."><meta property="og:image" content="/img/avatar_salimonov_small.jpeg">
+  <meta property="twitter:image" content="/img/avatar_salimonov_small.jpeg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-01-11T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2019-01-11T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/2019/01-distsys/"
+  },
+  "headline": "Системы с высокой доступностью",
+  
+  "datePublished": "2019-01-11T00:00:00Z",
+  "dateModified": "2019-01-11T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Alexander Salimonov"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Alexander Salimonov",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "Введение, термины, проблематика."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Системы с высокой доступностью | Alexander Salimonov</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Alexander Salimonov</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Alexander Salimonov</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Системы с высокой доступностью</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    2019-01-11
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/high-availbility/">High availbility</a>, <a href="/categories/sdl/">SDL</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_Связь_с_другими_областями_business_continuity">Связь с другими областями (business continuity)</a></li>
+<li><a href="#_Почему_это_нужно_для_бизнеса">Почему это нужно для бизнеса</a></li>
+<li><a href="#_Математика_доступности">Математика доступности</a></li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Серия статей, цель которых осветить вопросы проектирования и эксплуатации информационных систем и сервисов с требуемым для организации уровнем надежности. Введение в проблематику, освещаются ключевые концепции, связанность с другими вопросами ведения деятельности организации. Статьи предназначены преимущественно для руководителей проектов, собственников продуктов, а также для технических специалистов занятых в проектировании и организации работ.</p>
+</div>
+<div class="paragraph">
+<p>Данная статья является первой в серии, примерный состав серии:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Системы с высокой доступностью и аварийное восстановление. Введение. (эта статья)</p>
+</li>
+<li>
+<p>Системы с высокой доступностью и аварийное восстановление. Сбои: причины и классификация.</p>
+</li>
+<li>
+<p>Высокая доступность: концепции, общие практики построения и сопровождения.</p>
+</li>
+<li>
+<p>Аварийное восстановление: основы</p>
+</li>
+<li>
+<p>Аварийное восстановление: восстановление после сбоя</p>
+</li>
+<li>
+<p>Архитектура высокодоступных систем: основы</p>
+</li>
+<li>
+<p>Архитектура высокодоступных систем: базовые требования и сценарии отказа обслуживания</p>
+</li>
+<li>
+<p>Архитектура высокодоступных систем: расчет надежности</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>С вопросами проектирования и эксплуатации информационных систем сейчас сталкиваются практически в любой отрасли и сфере деятельности человечества где есть потребность в автоматизации и информационной поддержки. Довольно часто, эта автоматизация или информационная поддержка могут сами быть критически важными элементами процессов, обеспечивающих функционирование организации, например быть неотъемлемой частью основного бизнес-процесса или же сами являться продаваемой услугой. Так как от них начинает зависеть сама реализация деятельности или непосредственное получение дохода, то практически сразу же возникает и вопрос их надежности и согласованности с ограничениями и условиями ведения этой самой деятельности.</p>
+</div>
+<div class="sect1">
+<h2 id="_Связь_с_другими_областями_business_continuity"><a id="bc"></a>Связь с другими областями (business continuity)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Данная тема практически всегда рассматривается как часть другой большой темы - обеспечение непрерывности ведения бизнеса/деятельности <a href="https://en.wikipedia.org/wiki/Business_continuity">(business continuity)</a>, которая отвечает за меры по обеспечению доступа к ресурсам для критически важных для организации активностей. К сожалению далеко не все организации руководствуются какими бы то ни было стандартами (региональными, отраслевыми, даже собственными), регламентами или соглашениями. Но при достижении определенного масштаба или увеличения важности информационной системы становится понятно, что дешевле предотвратить инцидент или как-то его обработать, чем столкнуться с его последствиями без заранее предпринятых для его ликвидации мер. Довольно очевидно, что в таких случаях исходят из потребностей организации, а уже на основе них формируются и требования к обеспечению непрерывности функционирования организации через защитные меры.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_Почему_это_нужно_для_бизнеса"><a id="why"></a>Почему это нужно для бизнеса</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Как правило в обеспечении надежности эксплуатируемой организацией системы стоит начинать с потребностей самой организации.  Для этого нужно структурировать ее цели и потери которые могут вызвать отказы системы, их масштабы и показатели. Обычно цели организации определяются через уже установленные стандарты business continuity и через управление рисками, но эта тема вне серии статей. Клаус Шмидт в книге “High availability and disaster recovery. Concepts, design, implementation” предлагает следующую классификацию для описания ущерба организации в случае отказа:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Прямые затраты</strong> - затраты на ремонт, закупку нового оборудования, восстановление работоспособности</p>
+</li>
+<li>
+<p><strong>Дополнительное рабочее времени</strong> - непрямые затраты связанные с обработкой любого инцидента специалистами</p>
+</li>
+<li>
+<p><strong>Потерянное эффективное рабочее время</strong> - также непрямые затраты, связанные с невозможностью выполнения бизнес-задач персоналом, работу которых затронул отказ.</p>
+</li>
+<li>
+<p><strong>Потерянная выручка</strong> - невозможность обработать транзакции (любого вида) от экономического агента.</p>
+</li>
+</ol>
+</div>
+<table class="tableblock frame-topbot grid-all" style="width: 60%;">
+<caption class="title">Table 1. Потери вызванные сбоем</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Известные</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Оценочные</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Выручка</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Потеря выручки</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Потерянное эффективное рабочее время</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Затраты</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Прямые затраты</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Дополнительное рабочее время</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Наиболее очевидная цена сбоя и простоя системы и вероятно наиболее затратная - уменьшение пользовательской продуктивности. Фактическая цена простоя зависит от того на какую пользовательскую деятельность сбой повлиял и какое количество пользователей он затронул.
+Простой пример:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Во внутренней инфраструктуре фирме, предоставляющей некоторый онлайн-сервис произошел сбой, в результате которого сотрудники потеряли возможность работать с тестовыми контурами (test environment) в течении двух дней.</p>
+</li>
+<li>
+<p>Пользователи разработчики и тестировщики со средней ставкой в $60 за час, сбой в инфраструктуре привел к невозможности работы для 30 человек.</p>
+</li>
+<li>
+<p>Восстановление работоспособности силами двух администраторов привел к тратам на 16 сверхурочных рабочих часов по той же ставке.</p>
+</li>
+<li>
+<p>Разработчики работали над исправлением ряда дефектов и тремя новыми функциями для сервиса, выпуск новой версии сдвинулся на три дня. Согласно расчетам вывод новых функций должен приносить дополнительно по $21000 выручки в день. Более того, один из дефектов сильно затрудняет работу сотрудников клиента, чем он недоволен и руководителю организации или менеджеру продукта приходится тратить дополнительные усилия на то, чтобы дополнительно проинформировать клиента, возможно предпринять какие-то еще действия, чтобы тот в целом был удовлетворен оказываемым сервисом и продолжал поддерживать или даже увеличивать выручку организации.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>И так имеем следующий список затрат. Простой в работе для разработчиков и тестировщиков:</p>
+</div>
+<div class="paragraph">
+<p><code>$50 * 8 часов * 2 дня * 30 человек = $24000</code></p>
+</div>
+<div class="paragraph">
+<p>Сверхурочные для администраторов:<br></p>
+</div>
+<div class="paragraph">
+<p><code>$50 * 16 часа * 2(коэффициент за сверхурочные) = $1600</code></p>
+</div>
+<div class="paragraph">
+<p>Недополученная выручка:<br></p>
+</div>
+<div class="paragraph">
+<p><code>$21000 * 3 дня = $63000</code></p>
+</div>
+<div class="paragraph">
+<p>Пример крайне поверхностный и окончательный подсчет ущерба от сбоя зависит от правил учета затрат в организации и текущих планов по выручке. Если план включал не только те три разрабатываемые фичи, тогда имеет смысл использовать <a href="https://www.leadingagile.com/2015/06/an-introduction-to-cost-of-delay/">cost of delay</a> показатель и для более отдаленных релизов. Но не стоит все затраты, понесенные во время сбоя, списывать на его ликвидацию.</p>
+</div>
+<div class="paragraph">
+<p>Кроме выше изложенных потерь к последствиям сбоя можно отнести:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Уменьшение удовлетворения клиентов;</p>
+</li>
+<li>
+<p>Уменьшение морали сотрудников;</p>
+</li>
+<li>
+<p>Репутационные потери;</p>
+</li>
+<li>
+<p>Падение стоимости акций компании (если такие имеются);</p>
+</li>
+<li>
+<p>Юридическая ответственность в случае несоответствия заявленным стандартам или договорам.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>На основе известных понесенных или потенциальных потерь выручки и затрат на восстановление работоспособности уже можно планировать меры по минимизации ущерба. При наличии информации о стоимости фактического простоя, подобные меры обосновываются для владельцев крайне просто (с фактами не спорят), а интересы сторон уже известны.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_Математика_доступности"><a id="availability-math"></a>Математика доступности</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>И так, в принципе очевидно - простой стоит денег, причем немалых. И чем большее число пользователей было затронуто отказом и чем значительнее затронутые бизнес-процессы, тем дороже этот самый простой обходится. Нет смысла абсолютно точно считать понесенные убытки, чтобы убедиться в их больших размера, пример:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/cod.png" alt="Cost of downtime">
+</div>
+</div>
+<div class="paragraph">
+<p>Источник: <a href="https://www.ecessa.com/blog/downtime-costs/">https://www.ecessa.com/blog/downtime-costs/</a></p>
+</div>
+<div class="paragraph">
+<p>Собственно формула расчет доступности:<br>
+<code>A  = MTBF / (MTBF + MTTR)</code><br>
+<code>A</code> - собственно сам показательно доступности<br>
+<code>MTBF</code> - mean time between failures (среднее время между отказами)<br>
+<code>MTTR</code> - maximum time to resolve (максимальное время восстановления)<br></p>
+</div>
+<div class="paragraph">
+<p>Для удобства <code>A</code> умножают на 100, чтобы получить процент бесперебойной работы, именно из этого показателя формируется всем известная “доступность” по количеству девяток. На всякий случай таблица с ними для 24х7 сервисов:</p>
+</div>
+<table class="tableblock frame-topbot grid-all" style="width: 90%;">
+<caption class="title">Table 2. SLA для 24x7 сервисов</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>% бесперебойной работы</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>% недоступности</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Время простоя в год</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Время простоя в неделю</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">98%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7.3 дня</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ч. 22 мин.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">99%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.65 дня</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 ч. 41. мин</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">99.9%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.1%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8 ч. и 45 мин</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 мин. 5 сек</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">99.99%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.01%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">52.5 мин</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 мин.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>При эксплуатации системы и расчете доступности не всегда имеется в виду, что система эксплуатируется круглосуточно и весь год. Поэтому если кто-то декларирует доступность в несколько девяток следует уточнить в каких временных интервалах и как декларируют графики обслуживания системы для клиентов. Обычно в секции Service Level Agreement (SLA) оговаривается время когда именно эта сама доступность измеряется. Чаще всего используют привычные многим обозначения с <code>HxD</code>, где <code>H</code> - количество рабочих часов в сутках, <code>D</code> - количество рабочих суток в неделе.
+Типичные варианты:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>24 x 7 - круглосуточно, опционально прописываются часы обслуживания  (maintenance window)</p>
+</li>
+<li>
+<p>24 x 6 - 6 выбранных дней в неделю</p>
+</li>
+<li>
+<p>14 x 5 - рабочие часы в будний день</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Теперь сводная таблица:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. SLA для различных тайм-фреймов доступности</caption>
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2858%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle" rowspan="2"><p class="tableblock">SLA (%)</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">24x7</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">24x6</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">14x5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Месяц</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Год</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Месяц</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Год</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Месяц</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Год</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">99</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7.3ч</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.7д</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.3ч</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.1д</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.0ч</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5д</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">99.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.7ч</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.8д</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.1ч</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.6д</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5ч</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18.3ч</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">99.8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5ч</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17.5ч</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.3ч</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15.0ч</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">36.6мин</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7.3ч</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">99.9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">43.8мин</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8.8ч</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">37.6мин</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7.5ч</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18.3мин</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.7ч</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">99.99</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.4мин</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">52.6ч</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.8мин</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">45.1мин</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.8мин</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">21.9мин</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">99.999</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">26.3сек</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5.3мин</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22.6сек</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.5мин</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11.0сек</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.2мин</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>При таком подходе в оценке доступности системы необходимо отметить следующее:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Относительно чего была замерена доступность, если доступ осуществляется через один из нестабильных маршрутов, то относительно его пользователей доступность будет ниже</p>
+</li>
+<li>
+<p>Выше приведенные “девятки” есть среднее значение, гораздо важнее видеть MTTR, хотя по маркетинговым соображениям его иногда и не публикуют.</p>
+</li>
+<li>
+<p>Иногда публикуют теоретические данные, основываясь на построенной модели, но важно вести замер фактической доступности и не забывать при этом про п1.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>При обсуждении SLA имеет смысл обсуждать и фиксировать в договоренностях не абстрактные девятки процента доступности сервисов, а фактические (то есть абсолютные) показатели доступности сервисов в рабочие часы, чтобы избежать недопониманий и ложных ожиданий в будущем. Также не стоит недооценивать трудности достижения показателей высокой доступности таких как 99.99%, 53 минуты простоя в год должны означать, что организация имеет возможность обработать даже самый катастрофический сбой в системе менее чем за 1 час.</p>
+</div>
+<div class="paragraph">
+<p>В следующей статье (Системы с высокой доступностью и аварийное восстановление. Вынужденные простои и сбои: причины, классификация, затраты.) будут рассмотрены основные причины сбоев, различные их классификаторы, ключевые этапы преодоления сбоя, его оценка.</p>
+</div>
+</div>
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/high-availablitiy/">high-availablitiy</a>
+  
+  <a class="badge badge-light" href="/tags/distributed-systems/">distributed-systems</a>
+  
+  <a class="badge badge-light" href="/tags/ha/">HA</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/2019/01-distsys/&amp;text=%d0%a1%d0%b8%d1%81%d1%82%d0%b5%d0%bc%d1%8b%20%d1%81%20%d0%b2%d1%8b%d1%81%d0%be%d0%ba%d0%be%d0%b9%20%d0%b4%d0%be%d1%81%d1%82%d1%83%d0%bf%d0%bd%d0%be%d1%81%d1%82%d1%8c%d1%8e" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/2019/01-distsys/&amp;t=%d0%a1%d0%b8%d1%81%d1%82%d0%b5%d0%bc%d1%8b%20%d1%81%20%d0%b2%d1%8b%d1%81%d0%be%d0%ba%d0%be%d0%b9%20%d0%b4%d0%be%d1%81%d1%82%d1%83%d0%bf%d0%bd%d0%be%d1%81%d1%82%d1%8c%d1%8e" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=%d0%a1%d0%b8%d1%81%d1%82%d0%b5%d0%bc%d1%8b%20%d1%81%20%d0%b2%d1%8b%d1%81%d0%be%d0%ba%d0%be%d0%b9%20%d0%b4%d0%be%d1%81%d1%82%d1%83%d0%bf%d0%bd%d0%be%d1%81%d1%82%d1%8c%d1%8e&amp;body=/post/2019/01-distsys/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/2019/01-distsys/&amp;title=%d0%a1%d0%b8%d1%81%d1%82%d0%b5%d0%bc%d1%8b%20%d1%81%20%d0%b2%d1%8b%d1%81%d0%be%d0%ba%d0%be%d0%b9%20%d0%b4%d0%be%d1%81%d1%82%d1%83%d0%bf%d0%bd%d0%be%d1%81%d1%82%d1%8c%d1%8e" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=%d0%a1%d0%b8%d1%81%d1%82%d0%b5%d0%bc%d1%8b%20%d1%81%20%d0%b2%d1%8b%d1%81%d0%be%d0%ba%d0%be%d0%b9%20%d0%b4%d0%be%d1%81%d1%82%d1%83%d0%bf%d0%bd%d0%be%d1%81%d1%82%d1%8c%d1%8e%20/post/2019/01-distsys/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <img class="portrait mr-3" src="/authors/salimonov/avatar_salimonov_small_hu469099bcddfca1270d43d68bcc28120c_29069_250x250_fill_q90_lanczos_center.jpeg" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">Alexander Salimonov</a></h5>
+      <h6 class="card-subtitle">Engineering Manager</h6>
+      <p class="card-text">Distributed and data-intensive sytems, databases, data processing, cloud computing.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/asalimonov" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/asalimonov" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/files/Alexander_Salimonov_CV.pdf" >
+        <i class="ai ai-cv"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  </div>
+</article>
+
+
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/python.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/sql.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/json.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/yaml.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.3227ab49eed49815d1b4ba40154f74e7.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    Alexander Salimonov · ©  2019 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

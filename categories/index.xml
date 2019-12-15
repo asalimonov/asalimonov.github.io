@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories | Alexander Salimonov</title>
+    <link>/categories/</link>
+      <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <description>Categories</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Alexander Salimonov · ©  2019</copyright><lastBuildDate>Mon, 14 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/avatar_salimonov_small.jpeg</url>
+      <title>Categories</title>
+      <link>/categories/</link>
+    </image>
+    
+    <item>
+      <title>High availbility</title>
+      <link>/categories/high-availbility/</link>
+      <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>/categories/high-availbility/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SDL</title>
+      <link>/categories/sdl/</link>
+      <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>/categories/sdl/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

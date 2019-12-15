@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS | Alexander Salimonov</title>
+    <link>/tags/aws/</link>
+      <atom:link href="/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <description>AWS</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Alexander Salimonov · ©  2019</copyright><lastBuildDate>Thu, 23 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/avatar_salimonov_small.jpeg</url>
+      <title>AWS</title>
+      <link>/tags/aws/</link>
+    </image>
+    
+    <item>
+      <title>ob-pipelines</title>
+      <link>/project/02-ob-pipelines/</link>
+      <pubDate>Thu, 23 Aug 2018 00:00:00 +0000</pubDate>
+      <guid>/project/02-ob-pipelines/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
